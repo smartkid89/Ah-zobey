@@ -17,10 +17,13 @@
   const auth = firebase.auth();
   function signup() {
 
-     var email = document.getElementById("Email");
-     var password = document.getElementById("Password");
+     var email = document.getElementById("RegisterEmail");
+     var password = document.getElementById("RegisterPassword");
+     var username = document.getElementById("UserName");
      const promise = auth.createUserWithEmailAndPassowrd(email.value,password.value);
      prosmise.catch(e => alert (e.message));
+     alert("signup")
+
 
 
      function signin(){
@@ -36,6 +39,21 @@
         auth.signout();
         alert("signed")
 
+        auth.onAuthStateChanged(function(user) {
+            
+            if(user){
+                var email= user.email ;
 
-      }
+            
+
+            }else{
+
+            }
+
+
+        }
+
+
+
+  )};
 
